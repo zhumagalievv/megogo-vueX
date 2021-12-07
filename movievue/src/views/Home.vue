@@ -1,17 +1,24 @@
 <template>
   <div class="home">
-
+    <Carousel/>
+    <HeaderFavourites/>
+    <webapp-widgetslider/>
+    <webapp-widgetslider/>
+    <webapp-widgetslider/>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import WidgetSlider from "../components/WidgetSlider";
+import Carousel from "../components/Carousel";
+import HeaderFavourites from "../components/HeaderFavourites";
 
 export default {
   name: 'Home',
   components: {
-    HelloWorld
+    "webapp-widgetslider": WidgetSlider,
+        "Carousel": Carousel,
+    "HeaderFavourites": HeaderFavourites
   }
 }
 </script>

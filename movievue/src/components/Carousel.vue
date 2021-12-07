@@ -1,6 +1,6 @@
 <template>
   <div class="slider">
-    <Splide :options="{ rewind: true, autoplay: true, pauseOnHover: true}">
+    <Splide :options="{ rewind: true, autoplay: true, pauseOnHover: true, wheel: true}">
       <SplideSlide v-for="url in imgUrls">
         <img :src="url" alt="Sample 1">
       </SplideSlide>

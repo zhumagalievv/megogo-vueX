@@ -63,7 +63,7 @@ footer {
 }
 
 .footer__limit {
-  width: 78%;
+  width: 90%;
   height: 100%;
   margin: 0 auto;
   display: flex;
@@ -86,7 +86,7 @@ footer {
 }
 
 .left {
-  width: 70%;
+  width: 60%;
 }
 
 .column__item1 {

@@ -4,15 +4,25 @@
       <div class="header__limit">
         <div class="header__menu">
           <div class="menu__item">
-            <span class="logo">Megogo</span>
+            <span class="logo"><a href="/">Megogo</a></span>
             <ul class="menu__item__categories">
               <li>Телеканалы</li>
-              <li>Фильмы</li>
-              <li>Мультфильмы</li>
-              <li>Сериалы</li>
-              <li>Шоу</li>
-              <li>Блогеры</li>
-              <li>Киберспорт</li>
+              <li>
+                <router-link :to="{ name: 'Films' }">Фильмы</router-link>
+              </li>
+              <li>
+                <router-link :to="{ name: 'Cartoons' }">Мультфильмы</router-link>
+              </li>
+              <li>
+                <router-link :to="{ name: 'Serials' }">Сериалы</router-link>
+              </li>
+              <li>
+                <router-link :to="{ name: 'Shows' }">Шоу</router-link>
+              </li>
+              <li>
+                <router-link :to="{ name: 'Blogers' }">Блогеры</router-link>
+              </li>
+              <li><router-link :to="{ name: 'Cybersport' }">Киберспорт</router-link></li>
             </ul>
           </div>
           <div class="menu__item">
@@ -22,10 +32,6 @@
         </div>
       </div>
     </div>
-    <!--  Header Carousel  -->
-    <Carousel/>
-    <!--  Header favourites  -->
-    <HeaderFavourites/>
   </header>
 </template>
 
@@ -44,7 +50,14 @@ export default {
 </script>
 
 <style scoped>
+a {
+  text-decoration: none;
+  color: white;
+}
 
+.router-link-active {
+  color: red;
+}
 
 .header__navigation {
   background: #1A1A1A;
@@ -94,7 +107,6 @@ export default {
 .menu__item__categories li {
   margin: 0 8px;
   cursor: pointer;
-  color: white;
   transition: 0.5s;
   font-weight: 500;
   font-size: 16px;

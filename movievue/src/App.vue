@@ -4,7 +4,7 @@
       <webapp-header/>
     </div>
     <div class="main">
-      Men mainmin
+    <router-view></router-view>
     </div>
     <div class="footer">
       <webapp-footer/>
@@ -14,12 +14,16 @@
 <script>
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import WidgetSlider from "./components/WidgetSlider";
+import Home from "./views/Home"
 
 export default {
   name: 'App',
   components: {
+    "Home": Home,
     "webapp-header": Header,
     "webapp-footer": Footer,
+    "webapp-widgetslider": WidgetSlider,
   }
 }
 
