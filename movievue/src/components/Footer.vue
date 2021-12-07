@@ -43,6 +43,42 @@
         </div>
       </div>
     </div>
+    <div class="header__navigation">
+      <div class="header__limit">
+        <div class="header__menu">
+          <div class="menu__item">
+            <span class="logo"><a href="/">Megogo</a></span>
+            <ul class="menu__item__categories">
+              <li>Телеканалы</li>
+              <li>
+                <router-link :to="{ name: 'Films' }">Фильмы</router-link>
+              </li>
+              <li>
+                <router-link :to="{ name: 'Cartoons' }">Мультфильмы</router-link>
+              </li>
+              <li>
+                <router-link :to="{ name: 'Serials' }">Сериалы</router-link>
+              </li>
+              <li>
+                <router-link :to="{ name: 'Shows' }">Шоу</router-link>
+              </li>
+              <li>
+                <router-link :to="{ name: 'Blogers' }">Блогеры</router-link>
+              </li>
+              <li>
+                <router-link :to="{ name: 'Cybersport' }">Киберспорт</router-link>
+              </li>
+            </ul>
+          </div>
+          <div class="menu__item">
+            <p>© 2021 MEGOGO. Все права защищены.</p>
+            <div class="footer-age">
+              18+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </footer>
 </template>
 
@@ -67,6 +103,7 @@ footer {
   height: 100%;
   margin: 0 auto;
   display: flex;
+  flex-direction: column;
 }
 
 .footer__flex {
@@ -152,5 +189,92 @@ footer {
 
 .contact:first-child {
   margin-right: 16px;
+}
+
+/*-----------------Footer Menu----------------*/
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.router-link-active {
+  color: red;
+}
+
+.header__navigation {
+  background: #1A1A1A;
+  height: 55px;
+}
+
+.header__limit {
+  width: 78%;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+}
+
+.header__menu {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu__item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.menu__item .logo {
+  color: white;
+  cursor: pointer;
+  margin-right: 15px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.menu__item__categories {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  color: white;
+  list-style-type: none;
+}
+
+.menu__item__categories li {
+  margin: 0 8px;
+  cursor: pointer;
+  transition: 0.5s;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.menu__item__categories li:hover {
+  color: red;
+}
+
+.menu__item p {
+  line-height: 1.25;
+  font-size: 16px;
+  color: gray;
+}
+
+.menu__item .footer-age {
+  color: gray;
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  margin-left: 18px;
+  border: 1px solid;
+  font-size: 16px;
+  line-height: 36px;
+  vertical-align: middle;
+  text-align: center;
 }
 </style>
