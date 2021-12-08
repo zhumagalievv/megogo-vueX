@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Про онлайн кинотеатр MEGOGO.NET</title>
+	<style type="text/css">
+		@media only screen and (min-width: 850px) {
+		  body{
+				margin: 0;
+				padding: 0;
+
+			}
+
+			.title1{
+				font-family: Gotham;
+			    font-size: 40px;
+			    font-weight: 400;
+			    font-style: normal;
+			    text-transform: uppercase;
+			}
+			p a{
+				color: #f60;
+				cursor: pointer;
+			    text-decoration: none;
+			    -webkit-transition: color .2s;
+			    -moz-transition: color .2s;
+			    -ms-transition: color .2s;
+			    transition: color .2s;
+			}
+
+			.main{
+				display: flex;
+				justify-content: space-between;
+
+			}
+
+			main{
+				width: 70%;
+				margin: 0 auto;
+			}
+
+			.left{
+				width: 66%;
+			}
+			.right{
+				width: 23%;
+			}
+		}
+
+		@media only screen and (max-width: 850px) {
+			body{
+				margin: 0;
+				padding: 0;
+
+			}
+
+			.title1{
+				font-family: Gotham;
+			    font-size: 40px;
+			    font-weight: 400;
+			    font-style: normal;
+			    text-transform: uppercase;
+			}
+			p a{
+				color: #f60;
+				cursor: pointer;
+			    text-decoration: none;
+			    -webkit-transition: color .2s;
+			    -moz-transition: color .2s;
+			    -ms-transition: color .2s;
+			    transition: color .2s;
+			}
+
+			main{
+				width: 80%;
+				margin: 0 auto;
+				align-items: center;
+			}
+
+			.main{
+				display: block;
+				width: 150%;
+				/*justify-content: space-between;*/
+			}
+			.left{
+				width: 100%;
+				margin-bottom: 50px;
+			}
+			.right{
+				width: 100%;
+				margin-bottom: 50px;
+			}
+		}
+
+
+		.limit__container {
+		    margin: 0 6%;
+		    height: 100%;
+		    display: flex;
+		    flex-direction: column;
+		    -webkit-box-shadow: 0 4px 8px 3px rgba(34, 60, 80, 0.2);
+		    -moz-box-shadow: 0 4px 8px 3px rgba(34, 60, 80, 0.2);
+		    box-shadow: 0 4px 8px 3px rgba(34, 60, 80, 0.2);
+		}
+		footer {
+		    background: #E6E6E6;
+		}
+
+		.header__navigation {
+		    background: #1A1A1A;
+		    height: 50px;
+		}
+
+		.header__limit, .footer__limit, .widget__limit__container {
+		    width: 78%;
+		    height: 100%;
+		    margin: 0 auto;
+		    display: flex;
+		}
+
+		.header__menu {
+		    width: 100%;
+		    display: flex;
+		    flex-direction: row;
+		    flex-wrap: wrap;
+		    justify-content: space-between;
+		    align-items: center;
+		}
+
+		.menu__item {
+		    display: flex;
+		    flex-direction: row;
+		    align-items: center;
+		}
+
+		.menu__item .logo {
+		    color: white;
+		    cursor: pointer;
+		    margin-right: 15px;
+		    text-transform: uppercase;
+		    font-weight: bold;
+		    font-size: 18px;
+		}
+
+		.menu__item__categories {
+		    margin: 0;
+		    padding: 0;
+		    display: flex;
+		    flex-direction: row;
+		    color: white;
+		    list-style-type: none;
+		}
+
+		.menu__item__categories li {
+		    margin: 0 8px;
+		    cursor: pointer;
+		    color: white;
+		    transition: 0.5s;
+		    font-weight: 500;
+		    font-size: 16px;
+		}
+
+		.menu__item__categories li:hover {
+		    color: red;
+		}
+
+		.menu__item button {
+		    background: none;
+		    color: white;
+		    padding: 5px 10px;
+		    box-sizing: border-box;
+		    border: 1px solid white;
+		    transition: 0.5s;
+		    font-size: 16px;
+		    border-radius: 5px;
+		}
+
+		.menu__item button:hover {
+		    color: red;
+		    border-color: red;
+		    cursor: pointer;
+		}
+
+		.menu__item .login {
+		    color: white;
+		    font-size: 16px;
+		    margin-left: 15px;
+		    cursor: pointer;
+		    font-weight: 500;
+		    transition: 0.5s;
+		}
+
+		.menu__item .login:hover {
+		    color: red;
+		}
+
+		.header__fav {
+		    background: #F2F2F2;
+		    display: flex;
+		    flex-wrap: wrap;
+		    justify-content: center;
+		    padding: 20px 0;
+		}
+
+		.fav__block {
+		    display: inline-block;
+		    margin-bottom: 10px;
+		    margin-right: 20px;
+		    cursor: pointer;
+		    transition: 0.5s;
+		}
+
+		.fav__block:hover {
+		    filter: brightness(80%);
+		}
+
+		/* -------------------------------------Slider style------------------------------------- */
+		.slider {
+		    position: relative;
+		}
+
+		.slider .slider__item img {
+		    width: 100%;
+		}
+
+		.slider .slick-list {
+		    overflow: hidden;
+		}
+
+		.slider .slick-track {
+		    display: flex;
+		}
+
+		.slider .slick-arrow {
+		    position: absolute;
+		    top: 50%;
+		    transform: translateY(-50%);
+		    z-index: 10;
+		    font-size: 0;
+		    width: 30px;
+		    height: 50px;
+		    border: none;
+		}
+
+		.slider .slick-arrow.slick-prev {
+		    cursor: pointer;
+		    left: 2%;
+		    background: url('./img/sl-arrow_l.svg') 0 0 / 100% no-repeat;
+		}
+
+		.slider .slick-arrow.slick-next {
+		    cursor: pointer;
+		    right: 2%;
+		    background: url('./img/sl-arrow_r.svg') 0 0 / 100% no-repeat;
+		}
+
+		.slider .slick-dots {
+		    opacity: 0.5;
+		    transition: 0.5s;
+		    position: absolute;
+		    bottom: 5%;
+		    left: 50%;
+		    transform: translateX(-50%);
+		    padding: 0;
+		    display: flex;
+		    justify-content: center;
+		    align-items: center;
+		}
+
+		.slider .slick-dots li {
+		    list-style-type: none;
+		    margin: 0 10px;
+		}
+
+		.slider .slick-dots button {
+		    cursor: pointer;
+		    padding: 0;
+		    font-size: 0;
+		    background: gray;
+		    border: none;
+		    width: 10px;
+		    height: 10px;
+		    border-radius: 50%;
+		}
+
+		.slider .slick-dots:hover {
+		    opacity: 1;
+
+		}
+
+		.slider .slick-dots li.slick-active button {
+		    background: white;
+		}
+
+		
+
+		/* --------------------------------------------------Footer style------------------------------------------------- */
+		.footer__flex {
+		    margin-top: 45px;
+		    margin-bottom: 37px;
+		    width: 100%;
+		    display: flex;
+		    flex-direction: row;
+		    justify-content: space-between;
+		    flex-wrap: wrap;
+		}
+
+		.flex__column {
+		    display: flex;
+		    flex-direction: column;
+		    flex-wrap: wrap;
+		}
+
+		.left {
+		    width: 70%;
+		}
+
+		.column__item1 {
+		    width: 100%;
+		    display: flex;
+		    flex-direction: row;
+		    justify-content: space-between;
+		    flex-wrap: wrap;
+		    align-items: flex-end;
+		}
+
+		.column__item1 .item1__block {
+		    margin-right: 30px;
+		}
+
+		.flex__column h2 {
+		    color: #666;
+		    font-size: 14px;
+		    font-weight: 700;
+		}
+
+		.block__list {
+		    padding: 0;
+		    list-style-type: none;
+		}
+
+		.block__list li {
+		    margin-bottom: 9px;
+		    padding: 2px 0;
+		    color: #a6a6a6;
+		    transition: 0.5s;
+		}
+
+		.block__list li:hover, .contact:hover {
+		    color: red;
+		    cursor: pointer;
+		}
+
+		.block__list li:last-child {
+		    margin-bottom: 0px;
+		    padding: 0
+		}
+
+		.contact__number, .contact__number {
+		    margin: 4px 0;
+		    font-size: 24px;
+		    font-weight: 300;
+		    line-height: 1.25;
+		    color: #a6a6a6;
+		}
+
+		.contact_link {
+		    margin-top: 20px;
+		}
+
+		.contact {
+		    display: inline-block;
+		    color: #a6a6a6;
+		    line-height: 1.25;
+		    font-size: 16px;
+		    transition: 0.5s;
+		}
+
+		.contact:first-child {
+		    margin-right: 16px;
+		}
+		
+	</style>
+</head>
+<body>
+	<header>
+        <div class="header__navigation">
+            <div class="header__limit">
+                <div class="header__menu">
+                    <div class="menu__item">
+                        <span class="logo">Megogo</span>
+                        <ul class="menu__item__categories">
+                            <li>Телеканалы</li>
+                            <li>Фильмы</li>
+                            <li>Мультфильмы</li>
+                            <li>Сериалы</li>
+                            <li>Шоу</li>
+                            <li>Блогеры</li>
+                            <li>Киберспорт</li>
+                        </ul>
+                    </div>
+                    <div class="menu__item">
+                        <button>Попробовать за 19 тенге</button>
+                        <span class="login">Войти</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+    </header>
+
+    <main>
+	<div class="title1">
+		О НАС
+	</div>
+	<div class="main">
+		<div class="left">
+			<p>
+				<a href="/ru">MEGOGO</a> — это ТВ и кино для всей семьи на любом устройстве, подключенном к интернету. Сервис объединяет все видеоразвлечения, предоставляя пользователю огромный каталог кино, мультфильмов и сериалов, популярные телеканалы, интерактивное ТВ нового поколения и эксклюзивные прямые трансляции. Мировые киноновинки от ведущих голливудских студий открываются на<a href="/ru">MEGOGO </a> одновременно со всем миром.
+			</p>
+			<p>
+				Сервис предлагает новый формат онлайн-вещания телеканалов, доступных по единой подписке на телевизорах <a href="/ru/devices-tv">Smart TV</a>, компьютерах, планшетных ПК, смартфонах, игровых консолях и других платформах. Рейтинговые локальные и международные ТВ-каналы дополнены собственными интерактивными тематическими HD-каналами <a href="/ru">MEGOGO</a>. Сегодня на всех территориях работы сервиса суммарно доступно более 250 ТВ-каналов, из которых более 30 — собственные.
+			</p>
+			<p>
+				Ежемесячная&nbsp;аудитория <a href="/ru">MEGOGO</a>, крупнейшего в Восточной Европе видеосервиса, составляет 40 млн. уникальных пользователей в странах СНГ. Каталог ресурса — более 77 000 видео, из которых свыше 5000 художественных фильмов и сериалов, более 1500 мультфильмов, порядка 45 000 телевизионных шоу, концертов и музыкального видео, а также более 20 000 новостных программ. Кроме того, в рамках проекта <a href="/ru/live">MEGOGO LIVE </a> производятся эксклюзивные онлайн-трансляции ведущих музыкальных и культурных событий, конференций и фестивалей.
+			</p>
+			<p>
+				<a href="/ru">MEGOGO </a> активно занимается социальными инициативами, выступая организатором и меценатом различных кино-, интернет- и культурно-общественных мероприятий, и заботится о людях с нарушением слуха в рамках проекта «Смотри как слышно». Так, например, видеосервис запустил собственную студию сурдоперевода и открыл специальный раздел на сайте с тысячами фильмов для людей с нарушением слуха.
+			</p>
+		</div>
+		<div class="right">
+			<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FMegogoKZ%2F&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="340" height="400" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+			<br><br><br>
+			<script type="text/javascript" src="https://vk.com/js/api/openapi.js?169"></script>
+
+			<!-- VK Widget -->
+			<div id="vk_groups"></div>
+			<script type="text/javascript">
+			VK.Widgets.Group("vk_groups", {mode: 4, width: "300",  height: "400"}, 143608705);</script>
+		</div>
+	</div>
+	</main>
+
+	<footer>
+            <div class='footer__limit'>
+                <div class='footer__flex'>
+                    <div class='flex__column left'>
+                        <div class=column__item1>
+                            <div class='item1__block'>
+                                <h2>Пользователям и партнёрам</h2>
+                                <ul class='block__list'>
+                                    <li>Все о подписках</li>
+                                    <li>Бонусы и подарки</li>
+                                    <li>Активировать промокод</li>
+                                    <li>Соглашение</li>
+                                </ul>
+                            </div>
+                            <div class='item1__block'>
+                                <ul class='block__list'>
+                                    <li>О нас</li>
+                                    <li>Новости компании</li>
+                                    <li>Добавить подкаст</li>
+                                    <li>Сотрудничество</li>
+                                </ul>
+                            </div>
+                            <div class='item1__block'>
+                                <h2>На устройствах</h2>
+                                <ul class='block__list'>
+                                    <li>Телевизоры и медиаплееры</li>
+                                    <li>Мобильные устройства</li>
+                                    <li>Компьютер</li>
+                                    <li>Подключить телевизор</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='flex__column'>
+                        <h2>Поддержка пользователей</h2>
+                        <span class='contact__number'>+7 (727) 350 52 75</span>
+                        <span class='contact__number'>support@megogo.net</span>
+                        <div class='contact_link'>
+                            <span class='contact'>Все контакты</span>
+                            <span class='contact'>Вопросы и ответы</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+	
+
+
+</body>
+</html>
