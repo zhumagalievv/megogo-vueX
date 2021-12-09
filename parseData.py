@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 import requests
 import json
 
-url = "https://megogo.net/ru/premiere?utm_source=megogo&utm_medium=premiere&utm_campaign=premiere_premiere"
+url = "https://megogo.net/ru/cybersport"
 response = requests.get(url)
 soup = BeautifulSoup(response.text, 'html.parser')
 
@@ -34,7 +34,10 @@ for i in code_link:
 img = []
 for i in name:
     code_img = soup.find_all('img', alt=i)
-    img.append(code_img[0]['data-original'])
+    try:
+        img.append(code_img[0]['data-original'])
+    except:
+        continue
 
 movies = []
 

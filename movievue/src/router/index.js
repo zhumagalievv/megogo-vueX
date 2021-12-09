@@ -7,12 +7,24 @@ import Shows from "../views/Shows";
 import Blogers from '../views/Blogers';
 import Cybersport from '../views/Cybersport';
 import PathNotFound from '../components/PathNotFound'
+import Contact from "../views/Contact";
+import AboutUs from "../views/AboutUs";
 
 const routes = [
     {
         path: '/',
         name: 'Home',
         component: Home
+    },
+    {
+        path: '/contact',
+        name: 'Contact',
+        component: Contact
+    },
+    {
+        path: '/about',
+        name: 'About',
+        component: AboutUs
     },
     {
         path: '/films',

@@ -112,7 +112,7 @@ a {
   font-size: 16px;
 }
 
-.menu__item__categories li:hover {
+.menu__item__categories li:hover, .menu__item__categories li a:hover {
   color: red;
 }
 

@@ -15,7 +15,7 @@
             </div>
             <div class='item1__block'>
               <ul class='block__list'>
-                <li>О нас</li>
+                <li><a href="/about">О нас</a></li>
                 <li>Новости компании</li>
                 <li>Добавить подкаст</li>
                 <li>Сотрудничество</li>
@@ -37,7 +37,7 @@
           <span class='contact__number'>+7 (727) 350 52 75</span>
           <span class='contact__number'>support@megogo.net</span>
           <div class='contact_link'>
-            <span class='contact'>Все контакты</span>
+            <span class='contact'><a href="/contact">Все контакты</a></span>
             <span class='contact'>Вопросы и ответы</span>
           </div>
         </div>
@@ -150,14 +150,16 @@ footer {
   list-style-type: none;
 }
 
-.block__list li {
+.block__list li, .block__list li a {
   margin-bottom: 9px;
   padding: 2px 0;
   color: #a6a6a6;
   transition: 0.5s;
 }
-
-.block__list li:hover, .contact:hover {
+.contact a{
+  color: #a6a6a6;
+}
+.block__list li:hover, .contact a:hover {
   color: red;
   cursor: pointer;
 }
